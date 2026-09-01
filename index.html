@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K9 Esports Efootball League</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="intro-screen">
+        <div class="intro-content">
+            <div class="logo-container">
+                <img src="k9-logo.png" alt="K9 Logo" class="pulse-logo">
+            </div>
+            <h1 class="fade-in-text">K9 Esports Efootball League</h1>
+            <p class="slide-up-text">Xoş Gəlmisiniz!</p>
+        </div>
+    </div>
+
+    <div id="main-content" class="hidden">
+        
+        <header class="site-header">
+            <img src="k9-logo.png" alt="K9 Logo" class="header-logo">
+            <h2>K9 Esports Efootball League</h2>
+        </header>
+
+        <section class="about-section">
+            <h3>Bizimlə Zirvəyə!</h3>
+            <p>
+                K9 Esports olaraq PUBG-də qazandığımız təcrübəni indi eFootball səhnəsinə daşıyırıq!<br><br>
+                Artıq özümüzü sadəcə oyunçu kimi deyil, həm də rəsmi liqa təşkilatçısı kimi sübut edərək, eFootball icmasına yeni və peşəkar standartlar gətiririk. Genişmiqyaslı turnirlərimiz, həyəcan dolu qarşılaşmalarımız və artan oyunçu bazamızla virtual yaşıl meydançaların mərkəzindəyik.<br><br>
+                Məqsədimiz sadəcə liqa qurmaq deyil — rəqabətin, dostluğun və əsl esports ruhunun hökm sürdüyü güclü bir icma yaratmaqdır. K9 Esports olaraq həm PUBG, həm də eFootball sahəsində böyüməyə, yazılmamış uğurlara imza atmağa və zirvəni hədəfləməyə davam edirik!<br><br>
+                <strong>Sizin köməyinizə daha da zirvələrə!</strong>
+            </p>
+        </section>
+
+        <section class="team-section">
+            <h3>Admin Heyəti</h3>
+            <div class="team-grid">
+                <div class="team-card">
+                    <h4>Lider: R.Alıyev (Tilton)</h4>
+                    <a href="https://www.tiktok.com/@rovshanaliyeff?_r=1&_t=ZS-99N8pGOp6sz" target="_blank">TikTok Səhifəsi</a>
+                </div>
+                <div class="team-card">
+                    <h4>Menecer: A.Osmanov</h4>
+                    <a href="https://www.tiktok.com/@osmanovv211_?_r=1&_t=ZS-99N8rpnkD5c" target="_blank">TikTok Səhifəsi</a>
+                </div>
+                <div class="team-card">
+                    <h4>Admin: R.Hacıyev</h4>
+                    <a href="https://www.tiktok.com/@rafail_haciyeff1?_r=1&_t=ZS-99N8rElKzs" target="_blank">TikTok Səhifəsi</a>
+                </div>
+                <div class="team-card">
+                    <h4>Admin: Ə.Zərbəliyev</h4>
+                    <a href="https://www.tiktok.com/@avara55555?_r=1&_t=ZS-99N97jr5bNY" target="_blank">TikTok Səhifəsi</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="cv-section">
+            <h3>Liqaya Qatılmaq Üçün CV</h3>
+            <form id="cv-form">
+                <div class="form-group">
+                    <label>Ad və Soyad:</label>
+                    <input type="text" id="cv-name" required placeholder="Ad Soyad daxil edin">
+                </div>
+
+                <div class="form-group">
+                    <label>Əlaqə Nömrəsi:</label>
+                    <div class="phone-input-group">
+                        <select id="country-code" required>
+                            <option value="" disabled selected>Seç...</option>
+                            <option value="+7">🇷🇺 +7</option>
+                            <option value="+90">🇹🇷 +90</option>
+                            <option value="+994">🇦🇿 +994</option>
+                        </select>
+                        <input type="tel" id="cv-phone" required placeholder="Nömrəni daxil edin">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Yaşınız:</label>
+                    <input type="number" id="cv-age" required placeholder="Yaşınızı qeyd edin">
+                </div>
+
+                <div class="form-group">
+                    <label>Oyundakı Kollektiv Gücü:</label>
+                    <input type="text" id="cv-power" required placeholder="Məs: 3200 və ya 95+">
+                </div>
+
+                <div class="form-group">
+                    <label>Əvvəllər liqada çıxış edib-etmədiyiniz:</label>
+                    <select id="cv-experience" required>
+                        <option value="" disabled selected>Seçin...</option>
+                        <option value="Bəli Etmişəm">Bəli Etmişəm</option>
+                        <option value="Xeyr Etməmişəm">Xeyr Etməmişəm</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-btn">Müraciəti Göndər</button>
+            </form>
+        </section>
+
+        <section class="status-section">
+            <h3>Müraciət Statusum</h3>
+            <div id="status-display">
+                <p>Hələ ki müraciət göndərilməyib...</p>
+            </div>
+        </section>
+
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+  </html>
+
