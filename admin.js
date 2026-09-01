@@ -35,7 +35,7 @@ function loadApplications() {
         listDiv.innerHTML = "";
 
         if (!data) {
-            listDiv.innerHTML = "<p style='margin-top:10px;'>Hələ heç bir müraciət yoxdur.</p>";
+            listDiv.innerHTML = "<p style='margin-top:10px; color:#aaa; font-size:13px;'>Hələ heç bir müraciət yoxdur.</p>";
             return;
         }
 
@@ -48,9 +48,9 @@ function loadApplications() {
                 <p><strong>Nömrə:</strong> ${item.phone}</p>
                 <p><strong>Yaş:</strong> ${item.age}</p>
                 <p><strong>Güc:</strong> ${item.power}</p>
-                <p><strong>Liqa təcrübəsi:</strong> ${item.experience}</p>
-                <p><strong>Status:</strong> ${item.status}</p>
-                <p><strong>Son əməliyyat edən:</strong> ${item.actionBy || 'Yoxdur'}</p>
+                <p><strong>Təcrübə:</strong> ${item.experience}</p>
+                <p><strong>Status:</strong> <span style="color:${item.status.includes('Qəbul') ? '#4caf50' : item.status.includes('Rədd') ? '#f44336' : '#ffc107'}">${item.status}</span></p>
+                <p><strong>Baxdı:</strong> ${item.actionBy || 'Yoxdur'}</p>
                 <div class="action-btns">
                     <button class="accept-btn" onclick="updateStatus('${key}', 'Qəbul edildi ✅')">Qəbul Et</button>
                     <button class="reject-btn" onclick="updateStatus('${key}', 'Rədd edildi ❌')">Rədd Et</button>
@@ -80,4 +80,3 @@ window.updateStatus = function(firebaseKey, newStatus) {
         alert("Xəta: " + error.message);
     });
 };
-
