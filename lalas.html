@@ -11,20 +11,22 @@
     <div class="admin-container">
         <h2>K9 Esports - Admin Panel</h2>
         
+        <!-- GİRİŞ FORMU -->
         <div class="admin-login-box" id="admin-login">
-            <p id="login-error" style="color: #ff1e1e; margin-bottom: 10px; font-size: 13px; text-align: center;"></p>
+            <p id="login-error" style="color: #ff1e1e; margin-bottom: 10px; font-size: 12px; text-align: center;"></p>
             <input type="text" id="admin-user" placeholder="İstifadəçi adı">
             <input type="password" id="admin-pass" placeholder="Şifrə">
             <button onclick="adminLogin()">Daxil Ol</button>
         </div>
 
+        <!-- PANEL DASHBOARD -->
         <div class="admin-dashboard hidden" id="admin-dashboard">
             <div class="dashboard-header">
-                <h3 style="margin:0; border:none; padding:0;">Müraciətlər</h3>
+                <h3 style="margin:0; border:none; padding:0; font-size:15px;">Müraciətlər</h3>
                 <button onclick="adminLogout()" class="logout-btn">Çıxış</button>
             </div>
             
-            <div class="form-group" style="margin-top: 10px;">
+            <div class="form-group" style="margin-bottom: 8px;">
                 <label>Əməliyyatı yerinə yetirən Admini seçin:</label>
                 <select id="active-admin-name">
                     <option value="" disabled selected>Admin seçin...</option>
@@ -36,7 +38,8 @@
             </div>
 
             <div id="applications-list">
-                </div>
+                <!-- Müraciətlər bura gələcək -->
+            </div>
         </div>
     </div>
 
