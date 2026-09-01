@@ -8,13 +8,12 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-// Giriş animasiyasından sonra əsas məzmunu göstər
 setTimeout(() => {
     const intro = document.getElementById("intro-screen");
     const main = document.getElementById("main-content");
     if (intro) intro.style.display = "none";
     if (main) main.classList.remove("hidden");
-}, 4000);
+}, 3500);
 
 const cvForm = document.getElementById("cv-form");
 const statusDisplay = document.getElementById("status-display");
