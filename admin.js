@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-import { getDatabase, ref, onValue, update } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+import { getDatabase, ref, onValue, update, remove } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
 const firebaseConfig = {
     databaseURL: "https://k9-efootball-default-rtdb.firebaseio.com/"
@@ -35,7 +35,7 @@ function loadApplications() {
         listDiv.innerHTML = "";
 
         if (!data) {
-            listDiv.innerHTML = "<p style='margin-top:10px; color:#aaa; font-size:13px;'>Hələ heç bir müraciət yoxdur.</p>";
+            listDiv.innerHTML = "<p style='margin-top:10px; color:#aaa; font-size:12px;'>Hələ heç bir müraciət yoxdur.</p>";
             return;
         }
 
@@ -44,16 +44,19 @@ function loadApplications() {
             const card = document.createElement("div");
             card.className = "app-card";
             card.innerHTML = `
-                <p><strong>Ad:</strong> ${item.name}</p>
-                <p><strong>Nömrə:</strong> ${item.phone}</p>
-                <p><strong>Yaş:</strong> ${item.age}</p>
-                <p><strong>Güc:</strong> ${item.power}</p>
-                <p><strong>Təcrübə:</strong> ${item.experience}</p>
-                <p><strong>Status:</strong> <span style="color:${item.status.includes('Qəbul') ? '#4caf50' : item.status.includes('Rədd') ? '#f44336' : '#ffc107'}">${item.status}</span></p>
-                <p><strong>Baxdı:</strong> ${item.actionBy || 'Yoxdur'}</p>
+                <div class="app-info-grid">
+                    <p><strong>Ad:</strong> ${item.name}</p>
+                    <p><strong>Nömrə:</strong> ${item.phone}</p>
+                    <p><strong>Yaş:</strong> ${item.age}</p>
+                    <p><strong>Güc:</strong> ${item.power}</p>
+                    <p><strong>Təcrübə:</strong> ${item.experience}</p>
+                    <p><strong>Baxdı:</strong> ${item.actionBy || 'Yoxdur'}</p>
+                </div>
+                <p style="font-size:12px; margin-bottom:6px;"><strong>Status:</strong> <span style="color:${item.status.includes('Qəbul') ? '#4caf50' : item.status.includes('Rədd') ? '#f44336' : '#ffc107'}">${item.status}</span></p>
                 <div class="action-btns">
-                    <button class="accept-btn" onclick="updateStatus('${key}', 'Qəbul edildi ✅')">Qəbul Et</button>
-                    <button class="reject-btn" onclick="updateStatus('${key}', 'Rədd edildi ❌')">Rədd Et</button>
+                    <button class="accept-btn" onclick="updateStatus('${key}', 'Qəbul edildi ✅')">Qəbul</button>
+                    <button class="reject-btn" onclick="updateStatus('${key}', 'Rədd edildi ❌')">Rədd</button>
+                    <button class="delete-btn" onclick="deleteApplication('${key}')">Sil</button>
                 </div>
             `;
             listDiv.appendChild(card);
@@ -75,8 +78,19 @@ window.updateStatus = function(firebaseKey, newStatus) {
         status: newStatus,
         actionBy: selectedAdmin
     }).then(() => {
-        alert("Status yeniləndi!");
+        // Status yeniləndi
     }).catch((error) => {
         alert("Xəta: " + error.message);
     });
+};
+
+window.deleteApplication = function(firebaseKey) {
+    if (confirm("Bu müraciəti silmək istədiyinizə əminsiniz?")) {
+        const itemRef = ref(db, 'applications/' + firebaseKey);
+        remove(itemRef).then(() => {
+            // Uğurla silindi
+        }).catch((error) => {
+            alert("Xəta: " + error.message);
+        });
+    }
 };
