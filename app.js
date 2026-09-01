@@ -8,6 +8,14 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
+// Giriş animasiyasından sonra əsas məzmunu göstər
+setTimeout(() => {
+    const intro = document.getElementById("intro-screen");
+    const main = document.getElementById("main-content");
+    if (intro) intro.style.display = "none";
+    if (main) main.classList.remove("hidden");
+}, 4000);
+
 const cvForm = document.getElementById("cv-form");
 const statusDisplay = document.getElementById("status-display");
 
@@ -63,7 +71,7 @@ function loadMyStatus(appId) {
                     const item = data[key];
                     statusDisplay.innerHTML = `
                         <p><strong>Ad:</strong> ${item.name}</p>
-                        <p><strong>Status:</strong> <span style="color:${item.status.includes('Qəbul') ? '#28a745' : item.status.includes('Rədd') ? '#dc3545' : '#ffc107'}">${item.status}</span></p>
+                        <p><strong>Status:</strong> <span style="color:${item.status.includes('Qəbul') ? '#4caf50' : item.status.includes('Rədd') ? '#f44336' : '#ffc107'}">${item.status}</span></p>
                         <p><strong>Baxdı:</strong> ${item.actionBy || 'Hələ baxılmayıb'}</p>
                     `;
                     found = true;
@@ -83,4 +91,3 @@ window.addEventListener("DOMContentLoaded", () => {
         loadMyStatus(savedId);
     }
 });
-
