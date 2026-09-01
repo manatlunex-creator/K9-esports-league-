@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K9 Admin Panel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="admin-body">
+
+    <div class="admin-container">
+        <h2>K9 Esports - Admin Panel</h2>
+        
+        <div class="admin-login-box" id="admin-login">
+            <p id="login-error" style="color: #ff1e1e; margin-bottom: 10px; font-size: 13px; text-align: center;"></p>
+            <input type="text" id="admin-user" placeholder="İstifadəçi adı">
+            <input type="password" id="admin-pass" placeholder="Şifrə">
+            <button onclick="adminLogin()">Daxil Ol</button>
+        </div>
+
+        <div class="admin-dashboard hidden" id="admin-dashboard">
+            <div class="dashboard-header">
+                <h3>Daxil olan Müraciətlər</h3>
+                <button onclick="adminLogout()" class="logout-btn">Çıxış</button>
+            </div>
+            
+            <div class="form-group" style="margin-top: 15px;">
+                <label>Əməliyyatı yerinə yetirən Admini seçin:</label>
+                <select id="active-admin-name">
+                    <option value="" disabled selected>Admin seçin...</option>
+                    <option value="R.Alıyev">R.Alıyev</option>
+                    <option value="R.Hacıyev">R.Hacıyev</option>
+                    <option value="A.Osmanov">A.Osmanov</option>
+                    <option value="Ə.Zərbəliyev">Ə.Zərbəliyev</option>
+                </select>
+            </div>
+
+            <div id="applications-list">
+                </div>
+        </div>
+    </div>
+
+    <script type="module" src="admin.js"></script>
+</body>
+</html>
+
